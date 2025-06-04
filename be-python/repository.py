@@ -1,5 +1,11 @@
 from sqlalchemy.orm import Session
 from models import UserModel
+from fastapi import Depends
+from sqlalchemy.orm import Session
+from database import get_db
+
+def get_python_repository(db: Session = Depends(get_db)):
+    return PythonRepository(db)
 
 class PythonRepository():
 
