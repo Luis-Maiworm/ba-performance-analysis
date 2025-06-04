@@ -4,11 +4,9 @@ services:
     build: ./be-python
     ports: 
       - "8001:8001"
-    volumes:
-      - ./be-python:/app
     networks:
       - app-network
-    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8001", "--reload"]
+    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8001"]
 
 networks:
   app-network:
