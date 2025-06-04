@@ -8,6 +8,16 @@ services:
       - app-network
     command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8001"]
 
+  be_node:
+    build: ./be-node
+    ports: 
+      - "8002:8002"
+    networks:
+      - app-network
+    environment:
+      - PORT=8002
+    command: ["node", "index.js"]
+
 networks:
   app-network:
     driver: bridge
