@@ -7,10 +7,10 @@ services:
       - GF_AUTH_ANONYMOUS_ENABLED=true
       - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
       - GF_AUTH_DISABLE_LOGIN_FORM=true
-    depends_on:
-      - prometheus
     volumes:
       - ./grafana/provisioning:/etc/grafana/provisioning
+    depends_on:
+      - prometheus
     networks:
       - app-network
 
@@ -20,16 +20,29 @@ services:
       - "9090:9090"
     volumes:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--web.enable-remote-write-receiver"
     networks:
       - app-network
 
+  k6:
+    image: grafana/k6:latest
+    volumes:
+      - ./k6:/k6
+    entrypoint: ["k6"]
+    # profiles: ["tests"]
+    environment:
+      - K6_PROMETHEUS_RW_SERVER_URL=http://prometheus:9090/api/v1/write
+    depends_on:
+      - prometheus
+    networks:
+      - app-network
+  
   be_python:
     build:
       context: .
       dockerfile: be-python/Dockerfile
-    # volumes:
-      # - ./be-python:/app
-      # - ./users.json:/app/users.json
     ports: 
       - "8001:8001"
     networks:
@@ -40,8 +53,6 @@ services:
     build:
       context: .
       dockerfile: be-node/Dockerfile
-    # volumes:
-    #   - ./be-node:/app
     ports:
       - "8002:8002"
     networks:
