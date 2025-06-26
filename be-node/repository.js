@@ -1,4 +1,4 @@
-const { User } = require('./models');
+const { User } = require('./sequelize');
 
 function createUser(name, email, callback) {
   User.create({ name, email })

@@ -2,9 +2,11 @@ FROM node:20
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY be-node/package*.json ./
 RUN npm install
 
-COPY . .
+COPY be-node/ ./
+
+COPY sqlite.db ./node.db
 
 CMD ["node", "index.js"]
