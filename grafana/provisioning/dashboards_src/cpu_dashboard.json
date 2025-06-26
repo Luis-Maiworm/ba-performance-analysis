@@ -1,0 +1,52 @@
+{
+    "id": null,
+    "title": "CPU Usage Dashboard",
+    "timezone": "browser",
+    "schemaVersion": 36,
+    "version": 1,
+    "refresh": "5s",
+    "panels": [
+      {
+        "type": "timeseries",
+        "title": "HTTP Requests per Second (Python & Node)",
+        "id": 1,
+        "datasource": {
+          "type": "prometheus",
+          "uid": "prom_datasource"
+        },
+        "targets": [
+          {
+            "expr": "python_http_requests_total",
+            "legendFormat": "Python",
+            "interval": "",
+            "refId": "A"
+          },
+          {
+            "expr": "node_http_requests_total",
+            "legendFormat": "Node",
+            "interval": "",
+            "refId": "B"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "reqps",
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {}
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 9,
+          "w": 24,
+          "x": 0,
+          "y": 0
+        }
+      }
+    ],
+    "templating": {
+      "list": []
+    }
+}

@@ -1,0 +1,9 @@
+apiVersion: 1
+
+providers:
+  - name: 'BA Dashboards'
+    folder: 'BA'
+    type: file
+    options:
+      path: /etc/grafana/provisioning/dashboards_src
+      updateIntervalSeconds: 60
