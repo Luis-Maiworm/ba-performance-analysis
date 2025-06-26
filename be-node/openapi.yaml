@@ -84,6 +84,30 @@ paths:
           description: User deleted
         '404':
           description: User not found
+  /test:
+    get:
+      summary: Test endpoint
+      responses:
+        '200':
+          description: Test erfolgreich
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+  /metrics:
+    get:
+      summary: Prometheus metrics endpoint
+      description: Returns Prometheus metrics for monitoring.
+      responses:
+        '200':
+          description: Prometheus metrics in text format
+          content:
+            text/plain:
+              schema:
+                type: string
 components:
   schemas:
     User:
