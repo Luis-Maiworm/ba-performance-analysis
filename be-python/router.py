@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends
-from schemas import UserSchema
+from schemas import UserCreate, UserSchema
 from models import UserModel
 from repository import PythonRepository, get_python_repository
 from prometheus_client import Counter
@@ -31,14 +31,14 @@ def get_all_user(repository: PythonRepository = Depends(get_python_repository)):
     return {"message": "User not found"}, 404
 
 @router.post("/users/")
-def create_user(user: UserSchema, repository: PythonRepository = Depends(get_python_repository)):
+def create_user(user: UserCreate, repository: PythonRepository = Depends(get_python_repository)):
     db_user = UserModel(**user.model_dump())
     new_user = repository.create(db_user)
     REQUEST_COUNTER.labels(method="POST", endpoint="/users/", status_code=201).inc()
     return new_user
 
 @router.put("/users/{user_id}")
-def update_user(user_id: int, user: UserSchema, repository: PythonRepository = Depends(get_python_repository)):
+def update_user(user_id: int, user: UserCreate, repository: PythonRepository = Depends(get_python_repository)):
     updated_user = repository.update(user_id, **user.model_dump())
     if updated_user:
         REQUEST_COUNTER.labels(method="PUT", endpoint="/users/", status_code=200).inc()
