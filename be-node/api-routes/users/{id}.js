@@ -19,7 +19,7 @@ exports.get = function (req, res, next) {
 
 exports.put = function (req, res, next) {
   const id = parseInt(req.params.id, 10);
-  repository.updateUser(id, req.body.name, req.body.email, (err, user) => {
+  repository.updateUser(id, req.body.name, req.body.email, req.body.hashed_password, req.body.is_active, req.body.role, (err, user) => {
     if (err) {
       requestCounter.inc({ method: 'PUT', endpoint: '/users/{id}', status_code: 500 });
       return res.status(500).json({ error: err.message });

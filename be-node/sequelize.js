@@ -8,14 +8,23 @@ const sequelize = new Sequelize({
 const User = sequelize.define('users', {
   name: {
     type: DataTypes.STRING,
-    allowNull: false,
   },
   email: {
     type: DataTypes.STRING,
-    allowNull: false,
+  },
+  hashed_password: {
+    type: DataTypes.STRING,
+  },
+  is_active: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: true,
+  },
+  role: {
+    type: DataTypes.STRING,
+    defaultValue: 'user',
   },
 }, {
-  timestamps: false //evtl. hinzufügen??
+  timestamps: true //evtl. hinzufügen??
 });
 
 module.exports = { sequelize, User };

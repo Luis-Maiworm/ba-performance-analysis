@@ -1,7 +1,7 @@
 const { User } = require('./sequelize');
 
-function createUser(name, email, callback) {
-  User.create({ name, email })
+function createUser(name, email, hashed_password, is_active, role, callback) {
+  User.create({ name, email, hashed_password, is_active, role })
     .then(user => callback(null, user))
     .catch(err => callback(err));
 }
@@ -18,8 +18,8 @@ function getUserById(id, callback) {
     .catch(err => callback(err));
 }
 
-function updateUser(id, name, email, callback) {
-  User.update({ name, email }, { where: { id } })
+function updateUser(id, name, email, hashed_password, is_active, role, callback) {
+  User.update({ name, email, hashed_password, is_active, role }, { where: { id } })
     .then(([affectedRows]) => callback(null, { changes: affectedRows }))
     .catch(err => callback(err));
 }
