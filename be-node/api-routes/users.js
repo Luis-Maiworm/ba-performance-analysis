@@ -19,6 +19,6 @@ exports.get = function (req, res, next) {
       return res.status(500).json({ error: err.message });
     }
     requestCounter.inc({ method: 'GET', endpoint: '/users', status_code: 200 });
-    res.json(users);
+    res.json(users)
   });
 };

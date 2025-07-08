@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends
-from schemas import UserCreate, UserSchema
+from schemas import UserCreate
 from models import UserModel
 from repository import PythonRepository, get_python_repository
 from prometheus_client import Counter
@@ -22,7 +22,9 @@ def get_user(user_id: int, repository: PythonRepository = Depends(get_python_rep
     return {"message": "User not found"}, 404
 
 @router.get("/users/")
-def get_all_user(repository: PythonRepository = Depends(get_python_repository)):
+def get_all_user(
+    repository: PythonRepository = Depends(get_python_repository)
+):
     user = repository.read_all()
     if user:
         REQUEST_COUNTER.labels(method='GET', endpoint='/users/', status_code=200).inc()

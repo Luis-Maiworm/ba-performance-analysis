@@ -6,8 +6,15 @@ function createUser(name, email, hashed_password, is_active, role, callback) {
     .catch(err => callback(err));
 }
 
+// function getAllUsers(callback) {
+//   User.findAll()
+//     .then(users => callback(null, users))
+//     .catch(err => callback(err));
+// }
+// function getAllUsers(skip, limit, callback) {
 function getAllUsers(callback) {
-  User.findAll()
+  // User.findAll()
+  User.findAll({ limit: 10 })
     .then(users => callback(null, users))
     .catch(err => callback(err));
 }

@@ -25,10 +25,6 @@ app.get('/metrics', async (req, res) => {
   res.end(await client.register.metrics());
 });
 
-app.get('/test', (req, res) => {
-  res.json({ message: 'Test erfolgreich' });
-});
-
 const PORT = process.env.PORT || 8002;
 app.listen(PORT, () => {
   console.log(`be-node läuft auf Port ${PORT}`);
