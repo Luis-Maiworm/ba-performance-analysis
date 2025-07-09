@@ -12,18 +12,18 @@
   "panels": [
     {
       "type": "stat",
-      "title": "Error Rate",
+      "title": "rate(k6_http_reqs[1m])",
       "id": 1,
       "datasource": { "type": "prometheus", "uid": "prom_datasource"},
       "targets": [
         { 
-          "expr": "sum(increase(k6_http_reqs_total[$__rate_interval]))",
+          "expr": "rate(k6_http_reqs[1m])",
           "refId": "A"
         }
       ],
       "fieldConfig": {
         "defaults": {
-          "unit": "Requests"
+          "unit": "k6_http_reqs_total"
         },
         "overrides": []
       },  
@@ -59,12 +59,12 @@
     },
     {
       "type": "stat",
-      "title": "P95",
+      "title": "rate(process_cpu_seconds_total[1m]) * 100",
       "id": 4,
       "datasource": { "type": "prometheus", "uid": "prom_datasource" },
       "targets": [
         {
-          "expr": "k6_http_req_duration_p95",
+          "expr": "rate(process_cpu_seconds_total[1m]) * 100",
           "refId": "A"
         }
       ],
@@ -96,7 +96,67 @@
         "overrides": []
       },
       "gridPos": { "h": 9, "w": 24, "x": 0, "y": 3 }
+    },
+    {
+  "type": "timeseries",
+  "title": "CPU vs Virtual Users",
+  "gridPos": { "h": 9, "w": 24, "x": 0, "y": 6 },
+
+  "targets": [
+    {
+      "expr": "rate(process_cpu_seconds_total[1m]) * 100",
+      "legendFormat": "CPU (%)",
+      "refId": "A"
+    },
+    {
+      "expr": "k6_vus",
+      "legendFormat": "Virtual Users",
+      "refId": "B"
     }
+  ],
+  "fieldConfig": {
+    "defaults": {
+      "custom": {
+        "drawStyle": "lines",
+        "lineWidth": 2,
+        "showPoints": "auto",
+        "spanNulls": false
+      },
+      "unit": "percent"
+    },
+    "overrides": [
+      {
+        "matcher": {
+          "id": "byName",
+          "options": "Virtual Users"
+        },
+        "properties": [
+          {
+            "id": "unit",
+            "value": "none"
+          },
+          {
+            "id": "custom.axisPlacement",
+            "value": "right"
+          },
+          {
+            "id": "custom.axisLabel",
+            "value": "VUs"
+          }
+        ]
+      }
+    ]
+  },
+  "options": {
+    "legend": {
+      "displayMode": "table",
+      "placement": "bottom"
+    }
+  }
+}
+
+
+
   ],
   "templating": { "list": [] }
 }
