@@ -106,16 +106,16 @@ components:
           type: string
         email:
           type: string
-        hashed_password:
+        hashedPassword:
           type: string
-        is_active:
+        isActive:
           type: boolean
         role:
           type: string
-        created_at:
+        createdAt:
           type: string
           format: date-time
-        updated_at:
+        updatedAt:
           type: string
           format: date-time
     UserInput:
@@ -125,15 +125,15 @@ components:
           type: string
         email:
           type: string
-        hashed_password:
+        hashedPassword:
           type: string
-        is_active:
+        isActive:
           type: boolean
         role:
           type: string
       required:
         - name
         - email
-        - hashed_password
-        - is_active
+        - hashedPassword
+        - isActive
         - role

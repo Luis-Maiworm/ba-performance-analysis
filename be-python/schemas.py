@@ -6,18 +6,18 @@ from typing import Optional
 class UserCreate(BaseModel):
     name: str
     email: str
-    hashed_password: str
-    is_active: bool
+    hashedPassword: str
+    isActive: bool
     role: str
 
 class UserSchema(BaseModel):
     name: str
     email: str
-    hashed_password: str
-    is_active: bool
+    hashedPassword: str
+    isActive: bool
     role: str
-    created_at: Optional[datetime]
-    updated_at: Optional[datetime]
+    createdAt: Optional[datetime]
+    updatedAt: Optional[datetime]
 
     class Config:
         from_attributes = True

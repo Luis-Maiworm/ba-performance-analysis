@@ -36,8 +36,11 @@ def get_all_user(
 def create_user(user: UserCreate, repository: PythonRepository = Depends(get_python_repository)):
     db_user = UserModel(**user.model_dump())
     new_user = repository.create(db_user)
-    REQUEST_COUNTER.labels(method="POST", endpoint="/users/", status_code=201).inc()
-    return new_user
+    if user:
+        REQUEST_COUNTER.labels(method="POST", endpoint="/users/", status_code=201).inc()
+        return new_user
+    REQUEST_COUNTER.labels(method='GET', endpoint='/users/', status_code=404).inc()
+    return {"message": "Creation failed"}, 404
 
 @router.put("/users/{user_id}")
 def update_user(user_id: int, user: UserCreate, repository: PythonRepository = Depends(get_python_repository)):

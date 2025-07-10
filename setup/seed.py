@@ -14,11 +14,11 @@ cur.execute("""
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT,
         email TEXT,
-        hashed_password TEXT,
-        is_active BOOLEAN DEFAULT TRUE,
+        hashedPassword TEXT,
+        isActive BOOLEAN DEFAULT TRUE,
         role TEXT DEFAULT 'user',
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
 """)
 
@@ -31,10 +31,10 @@ def random_name():
 def random_email():
     return ''.join(random.choices(string.ascii_letters + string.digits, k=8)) + "@example.com"
 
-def random_hashed_password():
+def random_hashedPassword():
     return ''.join(random.choices(string.ascii_letters + string.digits, k=32))
 
-def random_is_active():
+def random_isActive():
     return random.choice([True, False])
 
 def random_role():
@@ -46,8 +46,8 @@ data = [
     {
         "name": random_name(),
         "email": random_email(),
-        "hashed_password": random_hashed_password(),
-        "is_active": random_is_active(),
+        "hashedPassword": random_hashedPassword(),
+        "isActive": random_isActive(),
         "role": random_role()
     } 
     for _ in range(10000)
@@ -55,8 +55,8 @@ data = [
 
 for user in data:
     cur.execute(
-        "INSERT INTO users (name, email, hashed_password, is_active, role) VALUES (?, ?, ?, ?, ?)",
-        (user["name"], user["email"], user["hashed_password"], user["is_active"], user["role"])
+        "INSERT INTO users (name, email, hashedPassword, isActive, role) VALUES (?, ?, ?, ?, ?)",
+        (user["name"], user["email"], user["hashedPassword"], user["isActive"], user["role"])
     )
 
 

@@ -2,232 +2,232 @@
   {
     "name": "Margie",
     "email": "lancasterbaird@vertide.com",
-    "hashed_password": "BDnYDjodv9okPMka4Pr8OIRA3h4rw3hf",
-    "is_active": true,
+    "hashedPassword": "BDnYDjodv9okPMka4Pr8OIRA3h4rw3hf",
+    "isActive": true,
     "role": "guest"
   },
   {
     "name": "Alexandria",
     "email": "angelpitts@quarx.com",
-    "hashed_password": "ekgrUn6rDG0ey8VIcFBlgJj995uv996u",
-    "is_active": true,
+    "hashedPassword": "ekgrUn6rDG0ey8VIcFBlgJj995uv996u",
+    "isActive": true,
     "role": "admin"
   },
   {
     "name": "Rocha",
     "email": "genevievegonzalez@iplax.com",
-    "hashed_password": "QQaPYdmdHm7Uz5zm7Ql1iT53ZTwMOmdl",
-    "is_active": false,
+    "hashedPassword": "QQaPYdmdHm7Uz5zm7Ql1iT53ZTwMOmdl",
+    "isActive": false,
     "role": "guest"
   },
   {
     "name": "Sanders",
     "email": "wellsblack@quility.com",
-    "hashed_password": "PsSgZTXe1wcNVOHD97JnuUaVHhcCy7OX",
-    "is_active": true,
+    "hashedPassword": "PsSgZTXe1wcNVOHD97JnuUaVHhcCy7OX",
+    "isActive": true,
     "role": "guest"
   },
   {
     "name": "Cathy",
     "email": "dollielevy@isologica.com",
-    "hashed_password": "IO5vVI2BaOsbWlPyjQixNqyxwqrMdIXc",
-    "is_active": true,
+    "hashedPassword": "IO5vVI2BaOsbWlPyjQixNqyxwqrMdIXc",
+    "isActive": true,
     "role": "admin"
   },
   {
     "name": "Socorro",
     "email": "romerobush@eweville.com",
-    "hashed_password": "rFpch7hm1DXPuieWp1UtQohx1EEmJShQ",
-    "is_active": true,
+    "hashedPassword": "rFpch7hm1DXPuieWp1UtQohx1EEmJShQ",
+    "isActive": true,
     "role": "user"
   },
   {
     "name": "Grimes",
     "email": "gambleduncan@netility.com",
-    "hashed_password": "cDKdizTtAF6Pbt96uO3XGU4xLS89tzAl",
-    "is_active": false,
+    "hashedPassword": "cDKdizTtAF6Pbt96uO3XGU4xLS89tzAl",
+    "isActive": false,
     "role": "guest"
   },
   {
     "name": "Wong",
     "email": "henrystein@zappix.com",
-    "hashed_password": "UpSUOKqHbL1cTHidPLgdTHWRcHkZYOub",
-    "is_active": false,
+    "hashedPassword": "UpSUOKqHbL1cTHidPLgdTHWRcHkZYOub",
+    "isActive": false,
     "role": "admin"
   },
   {
     "name": "Higgins",
     "email": "vinsonrowland@cosmosis.com",
-    "hashed_password": "LDNeigJnY0ie6KzyeF590pJOI49r0pXS",
-    "is_active": true,
+    "hashedPassword": "LDNeigJnY0ie6KzyeF590pJOI49r0pXS",
+    "isActive": true,
     "role": "admin"
   },
   {
     "name": "Jeannette",
     "email": "christiecasey@satiance.com",
-    "hashed_password": "6SydhDKM9HuTIMbM6UPOCcUTOPPg7Vpq",
-    "is_active": true,
+    "hashedPassword": "6SydhDKM9HuTIMbM6UPOCcUTOPPg7Vpq",
+    "isActive": true,
     "role": "guest"
   },
   {
     "name": "Virgie",
     "email": "cruzmelendez@musaphics.com",
-    "hashed_password": "ugKellVmPNYqvKqOdWCPNFMKKm3azPmd",
-    "is_active": true,
+    "hashedPassword": "ugKellVmPNYqvKqOdWCPNFMKKm3azPmd",
+    "isActive": true,
     "role": "admin"
   },
   {
     "name": "Porter",
     "email": "marvakane@spherix.com",
-    "hashed_password": "R5kW0J2PKvHICYS6VQCxRFeLrmKorzSn",
-    "is_active": true,
+    "hashedPassword": "R5kW0J2PKvHICYS6VQCxRFeLrmKorzSn",
+    "isActive": true,
     "role": "admin"
   },
   {
     "name": "Morton",
     "email": "beckbanks@omatom.com",
-    "hashed_password": "vPcOJ0cHifUo9ZfWIJpTGIxhAyiUYw06",
-    "is_active": true,
+    "hashedPassword": "vPcOJ0cHifUo9ZfWIJpTGIxhAyiUYw06",
+    "isActive": true,
     "role": "admin"
   },
   {
     "name": "Vazquez",
     "email": "corinedavenport@idego.com",
-    "hashed_password": "fwYgUyQQQ7vTI0CjGy00PQg6pxk0uRL0",
-    "is_active": true,
+    "hashedPassword": "fwYgUyQQQ7vTI0CjGy00PQg6pxk0uRL0",
+    "isActive": true,
     "role": "guest"
   },
   {
     "name": "Nell",
     "email": "klinemorton@filodyne.com",
-    "hashed_password": "vQ4LbdyPsSVZPVZRexzGY54G9pcmScaT",
-    "is_active": true,
+    "hashedPassword": "vQ4LbdyPsSVZPVZRexzGY54G9pcmScaT",
+    "isActive": true,
     "role": "user"
   },
   {
     "name": "Miller",
     "email": "kayemccarty@xelegyl.com",
-    "hashed_password": "VyD2NayOThkSz3O7KvmAgpmqi12Ch5kS",
-    "is_active": false,
+    "hashedPassword": "VyD2NayOThkSz3O7KvmAgpmqi12Ch5kS",
+    "isActive": false,
     "role": "admin"
   },
   {
     "name": "Caldwell",
     "email": "emiliacrawford@twiist.com",
-    "hashed_password": "k1gxpNLGmUJi31kPTgbugvON2EB56XzN",
-    "is_active": false,
+    "hashedPassword": "k1gxpNLGmUJi31kPTgbugvON2EB56XzN",
+    "isActive": false,
     "role": "guest"
   },
   {
     "name": "Blair",
     "email": "penningtoncraft@kozgene.com",
-    "hashed_password": "QOaeKPKIQkpxxNRW7fn9cJ21ISynSzRQ",
-    "is_active": true,
+    "hashedPassword": "QOaeKPKIQkpxxNRW7fn9cJ21ISynSzRQ",
+    "isActive": true,
     "role": "admin"
   },
   {
     "name": "Nunez",
     "email": "cooleyguzman@quarmony.com",
-    "hashed_password": "PtBiCRnlmfHf1YIykvuyBxpMHt8bp4ka",
-    "is_active": false,
+    "hashedPassword": "PtBiCRnlmfHf1YIykvuyBxpMHt8bp4ka",
+    "isActive": false,
     "role": "admin"
   },
   {
     "name": "Reeves",
     "email": "ramonaserrano@gallaxia.com",
-    "hashed_password": "4QM40OfO4SQlOqq9nODswF8kzopUOJFX",
-    "is_active": false,
+    "hashedPassword": "4QM40OfO4SQlOqq9nODswF8kzopUOJFX",
+    "isActive": false,
     "role": "admin"
   },
   {
     "name": "Rochelle",
     "email": "joanolson@sureplex.com",
-    "hashed_password": "vqTejy6224mi9JhbPgWqCnOEJliGbQW6",
-    "is_active": false,
+    "hashedPassword": "vqTejy6224mi9JhbPgWqCnOEJliGbQW6",
+    "isActive": false,
     "role": "user"
   },
   {
     "name": "Loraine",
     "email": "sherylmichael@rubadub.com",
-    "hashed_password": "bUOhtnJLJHMRKmNPuyxIDBXYBEKCzhSq",
-    "is_active": false,
+    "hashedPassword": "bUOhtnJLJHMRKmNPuyxIDBXYBEKCzhSq",
+    "isActive": false,
     "role": "user"
   },
   {
     "name": "Terry",
     "email": "ilagibbs@fanfare.com",
-    "hashed_password": "OMjYr6riKGN2ZtwQ3UfxW05fj5xioLAj",
-    "is_active": true,
+    "hashedPassword": "OMjYr6riKGN2ZtwQ3UfxW05fj5xioLAj",
+    "isActive": true,
     "role": "guest"
   },
   {
     "name": "Sherry",
     "email": "goodmurphy@geekmosis.com",
-    "hashed_password": "U2MfFVuGbBFQNMDQLUU1KALzSeCpgVWl",
-    "is_active": false,
+    "hashedPassword": "U2MfFVuGbBFQNMDQLUU1KALzSeCpgVWl",
+    "isActive": false,
     "role": "user"
   },
   {
     "name": "Marquez",
     "email": "lambertbolton@biohab.com",
-    "hashed_password": "XTvuq23K62W2HOxzNJM4GxH76VXN2g6V",
-    "is_active": true,
+    "hashedPassword": "XTvuq23K62W2HOxzNJM4GxH76VXN2g6V",
+    "isActive": true,
     "role": "admin"
   },
   {
     "name": "Dorothy",
     "email": "johnsedwards@netur.com",
-    "hashed_password": "Zw11b9XBbjNKNA0HDU3GUFWfuRInb8bj",
-    "is_active": false,
+    "hashedPassword": "Zw11b9XBbjNKNA0HDU3GUFWfuRInb8bj",
+    "isActive": false,
     "role": "guest"
   },
   {
     "name": "Kramer",
     "email": "elbawheeler@portico.com",
-    "hashed_password": "1J2FCczc957NDicxkhadiPpU01vgS6aO",
-    "is_active": true,
+    "hashedPassword": "1J2FCczc957NDicxkhadiPpU01vgS6aO",
+    "isActive": true,
     "role": "user"
   },
   {
     "name": "Allison",
     "email": "oneillcooper@portaline.com",
-    "hashed_password": "GR4XEVedQwI6MfLf2m4OAklTvaixuGCe",
-    "is_active": true,
+    "hashedPassword": "GR4XEVedQwI6MfLf2m4OAklTvaixuGCe",
+    "isActive": true,
     "role": "guest"
   },
   {
     "name": "Carol",
     "email": "jennabowen@toyletry.com",
-    "hashed_password": "AhTnDLbbS4s5by1CN1tfSshGZYYjNeIU",
-    "is_active": false,
+    "hashedPassword": "AhTnDLbbS4s5by1CN1tfSshGZYYjNeIU",
+    "isActive": false,
     "role": "admin"
   },
   {
     "name": "Melody",
     "email": "tabathabenson@lumbrex.com",
-    "hashed_password": "OJO9pGw8bq6kLXE9LzaIhsW4IGtbFd2s",
-    "is_active": true,
+    "hashedPassword": "OJO9pGw8bq6kLXE9LzaIhsW4IGtbFd2s",
+    "isActive": true,
     "role": "user"
   },
   {
     "name": "Vaughn",
     "email": "clevelandhouse@velity.com",
-    "hashed_password": "9u8ac4CXmo171ZOqqmnYdDNDamrRAygm",
-    "is_active": true,
+    "hashedPassword": "9u8ac4CXmo171ZOqqmnYdDNDamrRAygm",
+    "isActive": true,
     "role": "guest"
   },
   {
     "name": "Clements",
     "email": "melissasears@enervate.com",
-    "hashed_password": "XQkbxUuz4whp4TatT6J5bs335MWRrtMI",
-    "is_active": true,
+    "hashedPassword": "XQkbxUuz4whp4TatT6J5bs335MWRrtMI",
+    "isActive": true,
     "role": "guest"
   },
   {
     "name": "Colleen",
     "email": "cervantesarmstrong@ronelon.com",
-    "hashed_password": "C2CzG2rkAq5GwYzcPwR4uVrDPukQ1J0V",
-    "is_active": true,
+    "hashedPassword": "C2CzG2rkAq5GwYzcPwR4uVrDPukQ1J0V",
+    "isActive": true,
     "role": "guest"
   }
 ]

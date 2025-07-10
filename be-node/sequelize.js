@@ -12,10 +12,10 @@ const User = sequelize.define('users', {
   email: {
     type: DataTypes.STRING,
   },
-  hashed_password: {
+  hashedPassword: {
     type: DataTypes.STRING,
   },
-  is_active: {
+  isActive: {
     type: DataTypes.BOOLEAN,
     defaultValue: true,
   },
