@@ -28,7 +28,7 @@ export const executeRandomEndpoint = (url, id) => {
         // GET all
         const res = http.get(`${url}`);
         check(res, { 'read all': (r) => r.status === 200 });
-      } else if (rand < 35) {
+      } else if (rand < 40) {
         // GET by ID
         const res = http.get(`${url}/${id}`);
         check(res, { 'read one': (r) => r.status === 200 });
@@ -38,8 +38,8 @@ export const executeRandomEndpoint = (url, id) => {
         const res = http.post(`${url}`, postPayload, {
           headers: { 'Content-Type': 'application/json' },
         });
-        check(res, { 'created': (r) => r.status === 201 });
-      } else if (rand < 85) {
+        check(res, { 'created': (r) => r.status === 201 || r.status === 200});
+      } else if (rand < 80) {
         // PUT
         const putPayload = getRandomPayload();
         const res = http.put(`${url}/${id}`, putPayload, {

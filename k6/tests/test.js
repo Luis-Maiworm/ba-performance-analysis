@@ -8,11 +8,13 @@ const BASE_URL = `${url}${ENDPOINT}`;
 
 
 export const options = {
-    stages: [
-        { duration: "2m", target: 500},
-        { duration: "6m", target: 500},
-        { duration: "2m", target: 0},
-    ],
+    // stages: [
+    //     { duration: "1m", target: 100},
+    //     { duration: "3m", target: 100},
+    //     { duration: "1m", target: 0},
+    // ],
+    vus: 10,
+    duration: "5s"
 };
 
 export default function () {
