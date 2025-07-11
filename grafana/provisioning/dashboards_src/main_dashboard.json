@@ -10,20 +10,21 @@
     "to": "now"
   },
   "panels": [
+
     {
       "type": "stat",
-      "title": "rate(k6_http_reqs[1m])",
+      "title": "Total Requests",
       "id": 1,
       "datasource": { "type": "prometheus", "uid": "prom_datasource"},
       "targets": [
         { 
-          "expr": "rate(k6_http_reqs[1m])",
+          "expr": "sum(${metric_choice})",
           "refId": "A"
         }
-      ],
+      ],  
       "fieldConfig": {
         "defaults": {
-          "unit": "k6_http_reqs_total"
+          "unit": ""
         },
         "overrides": []
       },  
@@ -31,26 +32,26 @@
     },
     {
       "type": "stat",
-      "title": "Total Http requests",
+      "title": "Total Failure Rate",
       "id": 2,
       "datasource": { "type": "prometheus", "uid": "prom_datasource" },
       "targets": [
         {
-          "expr": "sum(k6_http_reqs_total)",
+          "expr": "sum(${metric_choice}{is_success='false'})",
           "refId": "A"
         }
-      ],
+      ],  
       "fieldConfig": { "defaults": { "unit": "Requests" }, "overrides": [] },
       "gridPos": { "h": 3, "w": 6, "x": 6, "y": 0 }
     },
     {
       "type": "stat",
-      "title": "P99",
+      "title": "Total Node/Python",
       "id": 3,
       "datasource": { "type": "prometheus", "uid": "prom_datasource" },
       "targets": [
         {
-          "expr": "histogram_quantile(0.99, sum(rate(http_req_duration_seconds_bucket[1m])) by (le))",
+          "expr": "sum(node_http_requests_total)",
           "refId": "A"
         }
       ],
@@ -96,67 +97,27 @@
         "overrides": []
       },
       "gridPos": { "h": 9, "w": 24, "x": 0, "y": 3 }
-    },
-    {
-  "type": "timeseries",
-  "title": "CPU vs Virtual Users",
-  "gridPos": { "h": 9, "w": 24, "x": 0, "y": 6 },
-
-  "targets": [
-    {
-      "expr": "rate(process_cpu_seconds_total[1m]) * 100",
-      "legendFormat": "CPU (%)",
-      "refId": "A"
-    },
-    {
-      "expr": "k6_vus",
-      "legendFormat": "Virtual Users",
-      "refId": "B"
     }
   ],
-  "fieldConfig": {
-    "defaults": {
-      "custom": {
-        "drawStyle": "lines",
-        "lineWidth": 2,
-        "showPoints": "auto",
-        "spanNulls": false
+  "templating": { "list": [
+    {
+      "type": "custom",
+      "name": "metric_choice",
+      "label": "Metrik wählen",
+      "query": "node_http_requests_total,python_http_requests_total",
+      "hide": 0,
+      "includeAll": false,
+      "multi": false,
+      "options": [],
+      "current": {
+        "selected": true,
+        "text": "node_http_requests_total",
+        "value": "node_http_requests_total"
       },
-      "unit": "percent"
-    },
-    "overrides": [
-      {
-        "matcher": {
-          "id": "byName",
-          "options": "Virtual Users"
-        },
-        "properties": [
-          {
-            "id": "unit",
-            "value": "none"
-          },
-          {
-            "id": "custom.axisPlacement",
-            "value": "right"
-          },
-          {
-            "id": "custom.axisLabel",
-            "value": "VUs"
-          }
-        ]
-      }
-    ]
-  },
-  "options": {
-    "legend": {
-      "displayMode": "table",
-      "placement": "bottom"
+      "refresh": 0,
+      "sort": 1
     }
-  }
-}
 
 
-
-  ],
-  "templating": { "list": [] }
+  ] }
 }
