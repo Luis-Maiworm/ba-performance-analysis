@@ -5,7 +5,7 @@ client.collectDefaultMetrics()
 const requestCounter = new client.Counter({
   name: 'node_http_requests_total',
   help: 'Total number of requests',
-  labelNames: ['method', 'endpoint', 'status_code'],
+  labelNames: ['method', 'endpoint', 'is_success'],
 });
 
 module.exports = { client, requestCounter };
