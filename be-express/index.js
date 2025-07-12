@@ -27,5 +27,5 @@ app.get('/metrics', async (req, res) => {
 
 const PORT = process.env.PORT || 8002;
 app.listen(PORT, () => {
-  console.log(`be-node läuft auf Port ${PORT}`);
+  console.log(`be-express läuft auf Port ${PORT}`);
 });

@@ -31,7 +31,7 @@ services:
     volumes:
       - ./k6:/k6
     entrypoint: ["k6"]
-    # profiles: ["tests"]
+    profiles: ["tests"]
     environment:
       - K6_PROMETHEUS_RW_SERVER_URL=http://prometheus:9090/api/v1/write
     depends_on:
@@ -39,20 +39,20 @@ services:
     networks:
       - app-network
   
-  be_python:
+  fastapi:
     build:
       context: .
-      dockerfile: be-python/Dockerfile
+      dockerfile: be-fastapi/Dockerfile
     ports: 
       - "8001:8001"
     networks:
       - app-network
     command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8001"]
 
-  be_node:
+  express:
     build:
       context: .
-      dockerfile: be-node/Dockerfile
+      dockerfile: be-express/Dockerfile
     ports:
       - "8002:8002"
     networks:

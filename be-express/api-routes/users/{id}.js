@@ -9,7 +9,7 @@ exports.get = function (req, res, next) {
       return res.status(500).json({ error: err.message });
     }
     if (!user) {
-      requestCounter.inc({ method: 'GET', endpoint: '/users/{id}', is_success: "false" });
+      requestCounter.inc({ method: 'GET', endpoint: '/users/{id}', is_success: "true" });
       return res.status(404).json({ error: 'User not found' });
     }
     requestCounter.inc({ method: 'GET', endpoint: '/users/{id}', is_success: "true" });
@@ -25,7 +25,7 @@ exports.put = function (req, res, next) {
       return res.status(500).json({ error: err.message });
     }
     if (!user) {
-      requestCounter.inc({ method: 'PUT', endpoint: '/users/{id}', is_success: "false" });
+      requestCounter.inc({ method: 'PUT', endpoint: '/users/{id}', is_success: "true" });
       return res.status(404).json({ error: 'User not found' });
     }
     requestCounter.inc({ method: 'PUT', endpoint: '/users/{id}', is_success: "true" });
@@ -41,7 +41,7 @@ exports.delete = function (req, res, next) {
       return res.status(500).json({ error: err.message });
     }
     if (!deleted) {
-      requestCounter.inc({ method: 'DELETE', endpoint: '/users/{id}', is_success: "false" });
+      requestCounter.inc({ method: 'DELETE', endpoint: '/users/{id}', is_success: "true" });
       return res.status(404).json({ error: 'User not found' });
     }
     requestCounter.inc({ method: 'DELETE', endpoint: '/users/{id}', is_success: "true" });

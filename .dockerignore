@@ -1,4 +1,4 @@
 **/node_modules
 **/npm-debug.log
-**/node.db
-**/python.db
+**/express.db
+**/fastapi.db
