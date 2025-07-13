@@ -1,5 +1,5 @@
 {
-  "id": null,
+  "id": "http_dashboard",
   "title": "HTTP Request Dashboard",
   "timezone": "browser",
   "schemaVersion": 36,
@@ -20,6 +20,10 @@
         { 
           "expr": "sum(${metric_choice})",
           "refId": "A"
+        },
+        { 
+          "expr": "sum(k6_http_reqs_total)",
+          "refId": "A"
         }
       ],  
       "fieldConfig": {
@@ -37,25 +41,29 @@
       "datasource": { "type": "prometheus", "uid": "prom_datasource" },
       "targets": [
         {
-          "expr": "sum(${metric_choice}{is_success='false'})",
+          "expr": "sum(${metric_choice}{is_success='false'}) / sum(${metric_choice}) * 100",
           "refId": "A"
+        },
+        {
+          "expr": "sum(k6_http_req_failed_rate) / sum(k6_http_reqs_total) * 100",
+          "refId": "B"
         }
       ],  
-      "fieldConfig": { "defaults": { "unit": "Requests" }, "overrides": [] },
+      "fieldConfig": { "defaults": { "unit": "%", "noValue": "0" }, "overrides": [] },
       "gridPos": { "h": 3, "w": 6, "x": 6, "y": 0 }
     },
     {
       "type": "stat",
-      "title": "Total Node/Python",
+      "title": "Request Rate (avg)",
       "id": 3,
       "datasource": { "type": "prometheus", "uid": "prom_datasource" },
       "targets": [
         {
-          "expr": "sum(node_http_requests_total)",
+          "expr": "sum(increase(${metric_choice}{is_success='true'}[$__range])) / $__range",
           "refId": "A"
         }
       ],
-      "fieldConfig": { "defaults": { }, "overrides": [] },
+      "fieldConfig": { "defaults": { "unit": "reqps" }, "overrides": [] },
       "gridPos": { "h": 3, "w": 6, "x": 12, "y": 0 }
     },
     {
@@ -74,18 +82,18 @@
     },
     {
       "type": "timeseries",
-      "title": "Requests per Endpoint (last 5m)",
+      "title": "Successful Requests per Endpoint (last 1m)",
       "id": 5,
       "datasource": { "type": "prometheus", "uid": "prom_datasource" },
       "targets": [
         {
-          "expr": "rate(node_http_requests_total[5m])",
-          "legendFormat": "Node: {{endpoint}}",
+          "expr": "rate(${metric_choice}{is_success='true'}[1m])",
+          "legendFormat": "{{method}}: {{endpoint}}",
           "refId": "A"
         },
         {
-          "expr": "rate(python_http_requests_total[5m])",
-          "legendFormat": "Python: {{endpoint}}",
+          "expr": "sum(increase(${metric_choice}{is_success='true'}[$__interval]))",
+          "legendFormat": "Total Requests",
           "refId": "B"
         }
       ],
@@ -94,7 +102,19 @@
           "unit": "reqps",
           "color": { "mode": "palette-classic" }
         },
-        "overrides": []
+        "overrides": [
+          {
+        "matcher": {
+          "id": "byName",
+          "options": "Total Requests"
+        },
+        "properties": [
+          { "id": "custom.axisPlacement", "value": "right" },
+          { "id": "unit", "value": "short" },
+          { "id": "custom.drawStyle", "value": "line" }
+        ]
+      }
+        ]
       },
       "gridPos": { "h": 9, "w": 24, "x": 0, "y": 3 }
     }
