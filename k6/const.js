@@ -10,5 +10,4 @@ export const ENDPOINT = "/users"
 export const URLS = {
     "fastapi": "http://fastapi:8001",
     "express": "http://express:8002",
-    // "java": "http://be_java:8003"
 }

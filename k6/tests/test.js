@@ -1,5 +1,8 @@
 import exec from 'k6/execution';
 
+import { check } from 'k6';
+import http from 'k6/http';
+
 import { URLS, ENDPOINT, SERVICE } from '../const.js';
 import { executeRandomEndpoint } from '../utils.js';
 
@@ -14,10 +17,12 @@ export const options = {
     //     { duration: "1m", target: 0},
     // ],
     vus: 10,
-    duration: "5s"
+    duration: "30s"
 };
 
 export default function () {
     const id = exec.scenario.iterationInTest;
     executeRandomEndpoint(BASE_URL, id)
+    // const res = http.get(`testetet`);
+    // check(res, { 'test': (r) => r.status !== 200 });
 }
