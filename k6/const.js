@@ -8,7 +8,7 @@ export const ENDPOINT = "/users"
  
 
 export const URLS = {
-    "python": "http://be_python:8001",
-    "node": "http://be_node:8002",
+    "fastapi": "http://fastapi:8001",
+    "express": "http://express:8002",
     // "java": "http://be_java:8003"
 }
