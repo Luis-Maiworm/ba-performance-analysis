@@ -10,7 +10,7 @@ IF EXIST "sqlite.db" (
 )
 
 echo Starting Docker Setup
-docker compose down -v prometheus grafana
+docker compose down -v  --remove-orphans
 docker compose up -d --build prometheus grafana
 docker compose build express fastapi
 echo Docker Setup finished
