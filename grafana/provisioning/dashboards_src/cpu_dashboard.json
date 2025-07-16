@@ -1,5 +1,6 @@
 {
-  "id": "cpu_dashboard",
+  "id": "cpu_dashbo ard",
+  "uid": "cpu_dashboard",
   "title": "CPU Dashboard",
   "timezone": "browser",
   "schemaVersion": 36,
@@ -12,48 +13,218 @@
   "panels": [
     {
       "type": "stat",
-      "title": "rate(k6_http_reqs[1m])",
+      "title": "Avg Process CPU: Express.js",
       "id": 1,
       "datasource": { "type": "prometheus", "uid": "prom_datasource"},
       "targets": [
         { 
-          "expr": "rate(k6_http_reqs[1m])",
+          "expr": "avg(process_resident_memory_bytes{job=\"express\"}) / 1024 / 1024",
           "refId": "A"
         }
       ],
       "fieldConfig": {
         "defaults": {
-          "unit": "k6_http_reqs_total"
+          "unit": "mb",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "green"
+          }
         },
         "overrides": []
       },  
-      "gridPos": { "h": 3, "w": 6, "x": 0, "y": 0 }
+      "options": {
+        "graphMode": "none"
+      },
+      "gridPos": { "h": 3, "w": 4, "x": 0, "y": 0 }
+    },
+    {
+      "type": "stat",
+      "title": "Avg Process CPU: FastAPI",
+      "id": 1,
+      "datasource": { "type": "prometheus", "uid": "prom_datasource"},
+      "targets": [
+        { 
+          "expr": "avg(process_resident_memory_bytes{job=\"fastapi\"}) / 1024 / 1024",
+          "legendFormat": "FastAPI",
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "mb",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "yellow"
+          }
+        },
+        "overrides": []
+      },  
+      "options": {
+        "graphMode": "none"
+      },
+      "gridPos": { "h": 3, "w": 4, "x": 4, "y": 0 }
+    },
+    {
+      "type": "stat",
+      "title": "Avg Virtual Memory: Express.js",
+      "id": 1,
+      "datasource": { "type": "prometheus", "uid": "prom_datasource"},
+      "targets": [
+        { 
+          "expr": "avg(process_virtual_memory_bytes{job=\"express\"}) / 1024 / 1024",
+          "legendFormat": "Express.js",
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "mb",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "green"
+          }
+        },
+        "overrides": []
+      },  
+      "options": {
+        "graphMode": "none"
+      },
+      "gridPos": { "h": 3, "w": 4, "x": 8, "y": 0 }
+    },
+    {
+      "type": "stat",
+      "title": "Avg Virtual Memory: FastAPI",
+      "id": 1,
+      "datasource": { "type": "prometheus", "uid": "prom_datasource"},
+      "targets": [
+        { 
+          "expr": "avg(process_virtual_memory_bytes{job=\"fastapi\"}) / 1024 / 1024",
+          "legendFormat": "FastAPI",
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "mb",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "yellow"
+          }
+        },
+        "overrides": []
+      },  
+      "options": {
+        "graphMode": "none"
+      },
+      "gridPos": { "h": 3, "w": 4, "x": 12, "y": 0 }
+    },
+    {
+      "type": "stat",
+      "title": "Avg CPU: Express.js",
+      "id": 1,
+      "datasource": { "type": "prometheus", "uid": "prom_datasource"},
+      "targets": [
+        { 
+          "expr": "avg(process_cpu_seconds_total{job=\"express\"})",
+          "legendFormat": "Express.js",
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "seconds",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "green"
+          }
+        },
+        "overrides": []
+      },  
+      "options": {
+        "graphMode": "none"
+      }, 
+      "gridPos": { "h": 3, "w": 4, "x": 16, "y": 0 }
+    },
+    {
+      "type": "stat",
+      "title": "Avg CPU: FastAPI",
+      "id": 1,
+      "datasource": { "type": "prometheus", "uid": "prom_datasource"},
+      "targets": [
+        { 
+          "expr": "avg(process_cpu_seconds_total{job=\"fastapi\"})",
+          "legendFormat": "FastAPI",
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "seconds",
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "yellow"
+          }
+        },
+        "overrides": []
+      },  
+      "options": {
+        "graphMode": "none"
+      }, 
+      "gridPos": { "h": 3, "w": 4, "x": 20, "y": 0 }
     },
     {
   "type": "timeseries",
-  "title": "Avg Request Duration (Node & Python)",
+  "title": "Process Resident Memory Bytes ",
   "id": 7,
   "datasource": { "type": "prometheus", "uid": "prom_datasource" },
   "targets": [
     {
-      "expr": "process_resident_memory_bytes{job=\"be_node\"} / 1024 / 1024",
-      "legendFormat": "Node.js avg",
+      "expr": "process_resident_memory_bytes{job=\"express\"} / 1024 / 1024",
+      "legendFormat": " Express.js",
       "refId": "A"
     },
     {
-      "expr": "process_resident_memory_bytes{job=\"be_python\"} / 1024 / 1024",
-      "legendFormat": "Python",
+      "expr": "process_resident_memory_bytes{job=\"fastapi\"} / 1024 / 1024",
+      "legendFormat": "FastAPI",
       "refId": "B"
     }
+    
   ],
   "fieldConfig": {
     "defaults": {
-      "unit": "megabytes",
+      "unit": "mb",
       "color": { "mode": "palette-classic" }
     },
     "overrides": []
   },
   "gridPos": { "h": 9, "w": 12, "x": 12, "y": 12 }
+},
+    {
+  "type": "timeseries",
+  "title": "Process Virtual Memory Bytes",
+  "id": 7,
+  "datasource": { "type": "prometheus", "uid": "prom_datasource" },
+  "targets": [
+    {
+      "expr": "process_virtual_memory_bytes{job=\"express\"} / 1024 / 1024",
+      "legendFormat": " Express.js",
+      "refId": "A"
+    },
+    {
+      "expr": "process_virtual_memory_bytes{job=\"fastapi\"} / 1024 / 1024",
+      "legendFormat": "FastAPI",
+      "refId": "B"
+    }
+    
+  ],
+  "fieldConfig": {
+    "defaults": {
+      "unit": "mb",
+      "color": { "mode": "palette-classic" }
+    },
+    "overrides": []
+  },
+  "gridPos": { "h": 9, "w": 12, "x": 0, "y": 12 }
 },
 
     {
@@ -63,14 +234,19 @@
 
     "targets": [
         {
-        "expr": "rate(process_cpu_seconds_total[1m]) * 100",
-        "legendFormat": "CPU (%) {{job}}",
+        "expr": "rate(process_cpu_seconds_total{job=\"express\"}[1m]) * 100",
+        "legendFormat": "CPU (%) Express.js",
         "refId": "A"
+        },
+        {
+        "expr": "rate(process_cpu_seconds_total{job=\"fastapi\"}[1m]) * 100",
+        "legendFormat": "CPU (%) FastAPI",
+        "refId": "B"
         },
         {
         "expr": "avg(k6_vus)",
         "legendFormat": "Virtual Users",
-        "refId": "B"
+        "refId": "C"
         }
     ],
     "fieldConfig": {

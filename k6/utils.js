@@ -16,7 +16,6 @@ export const getRandomPayload = () => {
     }
     const index = getRandomNumber(0, payloads.length - 1);
     const payload = JSON.stringify(payloads[index])
-    console.log('payloads:', payload);
     return payload;
 };
 

@@ -17,7 +17,7 @@ export const options = {
     //     { duration: "1m", target: 0},
     // ],
     vus: 10,
-    duration: "30s"
+    duration: "10s"
 };
 
 export default function () {
