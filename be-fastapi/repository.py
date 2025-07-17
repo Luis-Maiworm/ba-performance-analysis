@@ -21,7 +21,7 @@ class PythonRepository():
     def read(self, obj_id):
         return self.db.query(UserModel).filter(UserModel.id == obj_id).first()
 
-    def read_all(self, limit = 10):
+    def read_all(self, limit = 100):
         return self.db.query(UserModel).limit(limit).all()
 
     def update(self, obj_id, **kwargs):

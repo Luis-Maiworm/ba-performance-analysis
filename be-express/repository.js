@@ -8,7 +8,7 @@ function createUser(name, email, hashedPassword, isActive, role, callback) {
 
 
 function getAllUsers(callback) {
-  User.findAll({ limit: 10 })
+  User.findAll({ limit: 100 })
     .then(users => callback(null, users))
     .catch(err => callback(err));
 }
