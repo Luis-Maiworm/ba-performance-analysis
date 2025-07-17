@@ -120,12 +120,12 @@
     },
     {
       "type": "stat",
-      "title": "Avg CPU: Express.js",
+      "title": "CPU Usage: Express.js",
       "id": 1,
       "datasource": { "type": "prometheus", "uid": "prom_datasource"},
       "targets": [
         { 
-          "expr": "avg(process_cpu_seconds_total{job=\"express\"})",
+          "expr": "process_cpu_seconds_total{job=\"express\"}",
           "legendFormat": "Express.js",
           "refId": "A"
         }
@@ -147,12 +147,12 @@
     },
     {
       "type": "stat",
-      "title": "Avg CPU: FastAPI",
+      "title": "CPU usage: FastAPI",
       "id": 1,
       "datasource": { "type": "prometheus", "uid": "prom_datasource"},
       "targets": [
         { 
-          "expr": "avg(process_cpu_seconds_total{job=\"fastapi\"})",
+          "expr": "process_cpu_seconds_total{job=\"fastapi\"}",
           "legendFormat": "FastAPI",
           "refId": "A"
         }
@@ -219,8 +219,7 @@
   ],
   "fieldConfig": {
     "defaults": {
-      "unit": "mb",
-      "color": { "mode": "palette-classic" }
+      "unit": "mb"
     },
     "overrides": []
   },
@@ -280,9 +279,47 @@
             {
                 "id": "custom.axisLabel",
                 "value": "VUs"
+            },
+            {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
             }
             ]
-        }]
+        },
+        {
+            "matcher": {
+            "id": "byName",
+            "options": "CPU (%) FastAPI"
+            },
+            "properties": [
+              {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "yellow",
+                    "mode": "fixed"
+                  }
+              }
+            ]
+        },
+        {
+            "matcher": {
+            "id": "byName",
+            "options": "CPU (%) Express.js"
+            },
+            "properties": [
+              {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "green",
+                    "mode": "fixed"
+                  }
+              }
+            ]
+        }
+      ]
     },
     "options": {
         "legend": {

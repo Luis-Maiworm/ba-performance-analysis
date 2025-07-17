@@ -1,6 +1,14 @@
 # ba-performance-analysis
 
 
+Local Setup:
+
+[Docker Desktop App is needed. ](https://docs.docker.com/get-started/get-docker/)
+
+Additionally you will need Python. 
+[Python](https://www.python.org/downloads/)
+
+
 Versions:
 
 Local Python Version: 3.11.9
