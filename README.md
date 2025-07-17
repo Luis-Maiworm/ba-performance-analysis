@@ -1,6 +1,13 @@
 # ba-performance-analysis
 
 
+Versions:
+
+Local Python Version: 3.11.9
+Docker Node Image: node:20
+Docker Python Image: python:3.9
+
+
 To setup the project do the following
 
 If on windows: 
