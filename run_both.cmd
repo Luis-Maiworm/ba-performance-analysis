@@ -6,11 +6,11 @@ set TEST_TYPE=%1
 set LANG_1=%2
 set LANG_2=%3
 
-set WAIT_TIME=30
+set WAIT_TIME=45
 
-.\RUN.cmd %LANG_1% %TEST_TYPE%
-timeout /t %WAIT_TIME% >nul
-.\RUN.cmd %LANG_2% %TEST_TYPE%
+call .\RUN.cmd %TEST_TYPE% %LANG_1% 
+@REM timeout /t %WAIT_TIME% >nul
+call .\RUN.cmd %TEST_TYPE% %LANG_2%
 
 
 echo === RUN BOTH ===

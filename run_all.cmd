@@ -20,11 +20,11 @@ for /L %%i in (1,1,%ITERATIONS%) do (
     set /a mod=%%i %% 2
 
     if !mod! EQU 0 (
-        .\RUN.cmd express %TEST_TYPE%
-        .\RUN.cmd fastapi %TEST_TYPE%
+        .\RUN.cmd %TEST_TYPE% express
+        .\RUN.cmd %TEST_TYPE% fastapi
     ) else (
-        .\RUN.cmd express %TEST_TYPE%
-        .\RUN.cmd fastapi %TEST_TYPE%
+        .\RUN.cmd %TEST_TYPE% express
+        .\RUN.cmd %TEST_TYPE% fastapi
     )
 
     echo Resetting environment...
