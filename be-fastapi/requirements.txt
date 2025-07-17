@@ -1,5 +1,5 @@
-fastapi
-uvicorn
-pydantic
-sqlalchemy
-prometheus_client
+fastapi==0.111.0
+uvicorn==0.29.0
+pydantic==2.7.1
+sqlalchemy==2.0.30
+prometheus_client==0.20.0
