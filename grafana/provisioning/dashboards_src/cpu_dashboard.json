@@ -1,5 +1,5 @@
 {
-  "id": "cpu_dashbo ard",
+  "id": "cpu_dashboard",
   "uid": "cpu_dashboard",
   "title": "CPU Dashboard",
   "timezone": "browser",
@@ -13,7 +13,7 @@
   "panels": [
     {
       "type": "stat",
-      "title": "Avg Process CPU: Express.js",
+      "title": "Avg Resident Memory: Express.js",
       "id": 1,
       "datasource": { "type": "prometheus", "uid": "prom_datasource"},
       "targets": [
@@ -39,7 +39,7 @@
     },
     {
       "type": "stat",
-      "title": "Avg Process CPU: FastAPI",
+      "title": "Avg Resident Memory: FastAPI",
       "id": 1,
       "datasource": { "type": "prometheus", "uid": "prom_datasource"},
       "targets": [
@@ -236,17 +236,20 @@
         {
         "expr": "rate(process_cpu_seconds_total{job=\"express\"}[1m]) * 100",
         "legendFormat": "CPU (%) Express.js",
-        "refId": "A"
+        "refId": "A",
+        "color": "green"
         },
         {
         "expr": "rate(process_cpu_seconds_total{job=\"fastapi\"}[1m]) * 100",
         "legendFormat": "CPU (%) FastAPI",
-        "refId": "B"
+        "refId": "B",
+        "color": "yellow"
         },
         {
         "expr": "avg(k6_vus)",
         "legendFormat": "Virtual Users",
-        "refId": "C"
+        "refId": "C",
+        "color": "blue"
         }
     ],
     "fieldConfig": {
