@@ -3,8 +3,11 @@ const { initialize } = require('express-openapi');
 const swaggerUi = require('swagger-ui-express');
 const path = require('path');
 const YAML = require('yamljs');
-const { client } = require('./metrics');
 const { sequelize } = require('./sequelize');
+
+const client = require('prom-client');
+
+client.collectDefaultMetrics()
 
 sequelize.sync();
 
