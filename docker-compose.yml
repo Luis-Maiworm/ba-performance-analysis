@@ -32,6 +32,8 @@ services:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
     command:
       - "--config.file=/etc/prometheus/prometheus.yml"
+      - '--enable-feature=native-histograms'
+      - '--enable-feature=exemplar-storage'
       - "--web.enable-remote-write-receiver"
     networks:
       - app-network
@@ -44,6 +46,7 @@ services:
     profiles: ["tests"]
     environment:
       - K6_PROMETHEUS_RW_SERVER_URL=http://prometheus:9090/api/v1/write
+      - K6_PROMETHEUS_RW_TREND_AS_NATIVE_HISTOGRAM=true
     depends_on:
       - prometheus
     networks:
@@ -57,11 +60,11 @@ services:
       - "8001:8001"
     networks:
       - app-network
-    deploy:
-      resources:
-        limits:
-          cpus: "0.5"
-          memory: "512M"
+    # deploy:
+    #   resources:
+    #     limits:
+    #       cpus: "0.5"
+    #       memory: "512M"
     command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8001"]
 
   express:
@@ -72,11 +75,11 @@ services:
       - "8002:8002"
     networks:
       - app-network
-    deploy:
-      resources:
-        limits:
-          cpus: "0.5"
-          memory: "512M"
+    # deploy:
+    #   resources:
+    #     limits:
+    #       cpus: "0.5"
+    #       memory: "512M"
     command: ["node", "index.js"]
 
 networks:
