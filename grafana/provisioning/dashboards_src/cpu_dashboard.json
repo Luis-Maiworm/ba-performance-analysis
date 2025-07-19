@@ -35,7 +35,7 @@
       "options": {
         "graphMode": "none"
       },
-      "gridPos": { "h": 3, "w": 4, "x": 0, "y": 0 }
+      "gridPos": { "h": 3, "w": 6, "x": 0, "y": 0 }
     },
     {
       "type": "stat",
@@ -62,62 +62,9 @@
       "options": {
         "graphMode": "none"
       },
-      "gridPos": { "h": 3, "w": 4, "x": 4, "y": 0 }
+      "gridPos": { "h": 3, "w": 6, "x": 6, "y": 0 }
     },
-    {
-      "type": "stat",
-      "title": "Avg Virtual Memory: Express.js",
-      "id": 1,
-      "datasource": { "type": "prometheus", "uid": "prom_datasource"},
-      "targets": [
-        { 
-          "expr": "avg(process_virtual_memory_bytes{job=\"express\"}) / 1024 / 1024",
-          "legendFormat": "Express.js",
-          "refId": "A"
-        }
-      ],
-      "fieldConfig": {
-        "defaults": {
-          "unit": "mb",
-          "color": {
-            "mode": "fixed",
-            "fixedColor": "green"
-          }
-        },
-        "overrides": []
-      },  
-      "options": {
-        "graphMode": "none"
-      },
-      "gridPos": { "h": 3, "w": 4, "x": 8, "y": 0 }
-    },
-    {
-      "type": "stat",
-      "title": "Avg Virtual Memory: FastAPI",
-      "id": 1,
-      "datasource": { "type": "prometheus", "uid": "prom_datasource"},
-      "targets": [
-        { 
-          "expr": "avg(process_virtual_memory_bytes{job=\"fastapi\"}) / 1024 / 1024",
-          "legendFormat": "FastAPI",
-          "refId": "A"
-        }
-      ],
-      "fieldConfig": {
-        "defaults": {
-          "unit": "mb",
-          "color": {
-            "mode": "fixed",
-            "fixedColor": "yellow"
-          }
-        },
-        "overrides": []
-      },  
-      "options": {
-        "graphMode": "none"
-      },
-      "gridPos": { "h": 3, "w": 4, "x": 12, "y": 0 }
-    },
+    
     {
       "type": "stat",
       "title": "CPU Usage: Express.js",
@@ -143,7 +90,7 @@
       "options": {
         "graphMode": "none"
       }, 
-      "gridPos": { "h": 3, "w": 4, "x": 16, "y": 0 }
+      "gridPos": { "h": 3, "w": 6, "x": 12, "y": 0 }
     },
     {
       "type": "stat",
@@ -170,7 +117,7 @@
       "options": {
         "graphMode": "none"
       }, 
-      "gridPos": { "h": 3, "w": 4, "x": 20, "y": 0 }
+      "gridPos": { "h": 3, "w": 6, "x": 18, "y": 0 }
     },
     {
   "type": "timeseries",
@@ -197,35 +144,9 @@
     },
     "overrides": []
   },
-  "gridPos": { "h": 9, "w": 12, "x": 12, "y": 12 }
+  "gridPos": { "h": 9, "w": 24, "x": 12, "y": 12 }
 },
-    {
-  "type": "timeseries",
-  "title": "Process Virtual Memory Bytes",
-  "id": 7,
-  "datasource": { "type": "prometheus", "uid": "prom_datasource" },
-  "targets": [
-    {
-      "expr": "process_virtual_memory_bytes{job=\"express\"} / 1024 / 1024",
-      "legendFormat": " Express.js",
-      "refId": "A"
-    },
-    {
-      "expr": "process_virtual_memory_bytes{job=\"fastapi\"} / 1024 / 1024",
-      "legendFormat": "FastAPI",
-      "refId": "B"
-    }
-    
-  ],
-  "fieldConfig": {
-    "defaults": {
-      "unit": "mb"
-    },
-    "overrides": []
-  },
-  "gridPos": { "h": 9, "w": 12, "x": 0, "y": 12 }
-},
-
+   
     {
     "type": "timeseries",
     "title": "CPU vs Virtual Users",
