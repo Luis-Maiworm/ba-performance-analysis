@@ -1,34 +1,28 @@
 const { User } = require('./sequelize');
 
-function createUser(name, email, hashedPassword, isActive, role, callback) {
-  User.create({ name, email, hashedPassword, isActive, role })
-    .then(user => callback(null, user))
-    .catch(err => callback(err));
+const createUser = async (name, email, hashedPassword, isActive, role) => {
+  return await User.create({ name, email, hashedPassword, isActive, role })
 }
 
-
-function getAllUsers(callback) {
-  User.findAll({ limit: 100 })
-    .then(users => callback(null, users))
-    .catch(err => callback(err));
+const getAllUsers = async () => {
+  return await User.findAll({ limit: 100 })
 }
 
-function getUserById(id, callback) {
-  User.findByPk(id)
-    .then(user => callback(null, user))
-    .catch(err => callback(err));
+const getUserById = async (id) => {
+  return await User.findByPk(id);
 }
 
-function updateUser(id, name, email, hashedPassword, isActive, role, callback) {
-  User.update({ name, email, hashedPassword, isActive, role }, { where: { id } })
-    .then(([affectedRows]) => callback(null, { changes: affectedRows }))
-    .catch(err => callback(err));
+const updateUser = async (id, name, email, hashedPassword, isActive, role) => {
+  const [affectedRows] = await User.update(
+    { name, email, hashedPassword, isActive, role },
+    { where: { id } }
+  );
+  return { changes: affectedRows };
 }
 
-function deleteUser(id, callback) {
-  User.destroy({ where: { id } })
-    .then(deleted => callback(null, { changes: deleted }))
-    .catch(err => callback(err));
+const deleteUser = async (id) => {
+  const deleted = await User.destroy({ where: { id } });
+  return { changes: deleted };
 }
 
 module.exports = {
