@@ -1,13 +1,6 @@
 # ba-performance-analysis
 
 
-Local Setup:
-
-[Docker Desktop App is needed. ](https://docs.docker.com/get-started/get-docker/)
-
-Additionally you will need Python. 
-[Python](https://www.python.org/downloads/)
-
 
 Versions:
 
@@ -69,34 +62,34 @@ Dieses Repository enthält die Implementierung, Tests und Analyse einer RESTful 
 
 ---
 
-## 📦 Abhängigkeiten
+## 📦 Dependencies
 
-Folgende Anwendungen müssen installiert sein:
+Following software needs to be installed on your environment:
 
-- [Docker Desktop](LINK) *(für Docker und Docker Compose)*
-- [Python](https://www.python.org/) *(für FastAPI)*
+- [Docker Desktop](https://docs.docker.com/get-started/get-docker/) *(for Docker and Docker Compose)*
+- [Python, >3.9](https://www.python.org/downloads/) *(to execute the database seeding script)*
 
 ---
 
-## 🚀 Installationsguide
+## 🚀 Setup guide
 
 
-1. **Repository klonen:**
+1. **Clone repository:**
 
 ```powershell
 git clone https://github.com/DEIN-USERNAME/DEIN-REPO.git
-cd DEIN-REPO
+cd YOUR-REPO
 ```
 
 
-### Windows (via `init.cmd`)
+### Windows (via Batch-Scripts)
 
 ```powershell
 
 ```
 
 
-
+###
 
 
 http://localhost:3000/d/http_dashboard/
