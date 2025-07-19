@@ -4,7 +4,7 @@ exports.post = async (req, res, next) => {
   try {
     const user = await repository.createUser(req.body.name, req.body.email, req.body.hashedPassword, req.body.isActive, req.body.role);
     if(!user) {
-      return res.status(404).json({ message: "Creation failed"})
+      return res.status(400).json({ message: "Creation failed"})
     }
     return res.status(201).json(user);
   } catch (err) {
