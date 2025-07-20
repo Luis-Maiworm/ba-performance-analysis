@@ -50,7 +50,7 @@ data = [
         "isActive": random_isActive(),
         "role": random_role()
     } 
-    for _ in range(10000)
+    for _ in range(100000)
 ]
 
 for user in data:
