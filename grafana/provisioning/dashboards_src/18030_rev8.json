@@ -2053,7 +2053,7 @@
   "timepicker": {},
   "timezone": "",
   "title": "k6 Prometheus (Native Histograms)",
-  "uid": "a3b2aaa8-bb66-4008-a1d8-16c49afedbf0",
+  "uid": "http_dashboard_native_histograms",
   "version": 1,
   "weekStart": "",
   "gnetId": 18030

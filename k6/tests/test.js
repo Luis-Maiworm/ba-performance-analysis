@@ -17,12 +17,10 @@ export const options = {
     //     { duration: "1m", target: 0},
     // ],
     vus: 10,
-    duration: "10s"
+    duration: "2m"
 };
 
 export default function () {
     const id = exec.scenario.iterationInTest;
     executeRandomEndpoint(BASE_URL, id)
-    // const res = http.get(`testetet`);
-    // check(res, { 'test': (r) => r.status !== 200 });
 }
