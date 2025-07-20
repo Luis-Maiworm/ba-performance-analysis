@@ -60,11 +60,14 @@ services:
       - "8001:8001"
     networks:
       - app-network
-    # deploy:
-    #   resources:
-    #     limits:
-    #       cpus: "0.5"
-    #       memory: "512M"
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: "512M"
+        reservations:
+          cpus: "0.5"
+          memory: "256M"
     command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8001"]
 
   express:
@@ -75,11 +78,14 @@ services:
       - "8002:8002"
     networks:
       - app-network
-    # deploy:
-    #   resources:
-    #     limits:
-    #       cpus: "0.5"
-    #       memory: "512M"
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: "512M"
+        reservations:
+          cpus: "0.5"
+          memory: "256M"
     command: ["node", "index.js"]
 
 networks:
