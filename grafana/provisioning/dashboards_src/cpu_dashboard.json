@@ -166,7 +166,7 @@
         "color": "yellow"
         },
         {
-        "expr": "avg(k6_vus)",
+        "expr": "k6_vus",
         "legendFormat": "Virtual Users",
         "refId": "C",
         "color": "blue"
