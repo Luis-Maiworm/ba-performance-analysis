@@ -41,7 +41,6 @@ def random_role():
     return random.choice(["user", "admin", "manager"])
 
 
-# 10.000 Datensätze einfügen
 data = [
     {
         "name": random_name(),
