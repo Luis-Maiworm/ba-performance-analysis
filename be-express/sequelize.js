@@ -24,7 +24,7 @@ const User = sequelize.define('users', {
     defaultValue: 'user',
   },
 }, {
-  timestamps: true //evtl. hinzufügen??
+  timestamps: true
 });
 
 module.exports = { sequelize, User };
